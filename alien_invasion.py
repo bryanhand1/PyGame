@@ -7,6 +7,8 @@ from settings import Settings
 
 from ship import Ship
 
+from bullet import Bullet
+
 
 class AlienInvasion:
     """Overall class to manage game assets and behavior."""
@@ -56,6 +58,8 @@ class AlienInvasion:
             self.ship.moving_left = True
         elif event.key == pygame.K_q:
             sys.exit()
+        elif event.key == pygame.K_SPACE:
+            self._fire_bullet()
 
     def _check_keyup_events(self, event):
         """ responds to key releases"""
@@ -65,6 +69,11 @@ class AlienInvasion:
         elif event.key == pygame.K_LEFT:
             # Move the ship left
             self.ship.moving_left = False
+
+    def _fire_bullet(self):
+        """create a new bullet and add it to the bullets group."""
+        new_bullet = Bullet(self)
+        self.bullets.add(new_bullet)
 
     def _update_screen(self):
         # Redraw the screen during each pass through the loop
