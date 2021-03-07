@@ -137,8 +137,22 @@ class AlienInvasion:
         self.aliens.add(alien)
 
     def _update_aliens(self):
-        """update the positions of all aliens in the fleet"""
+        """Check if the fleet is at an edge, update the positions of all aliens in the fleet"""
+        self._check_fleet_edges()
         self.aliens.update()
+
+    def _check_fleet_edges(self):
+        """Respond appropriately if an aliens have reached an edge."""
+        for alien in self.aliens.sprite():
+            if alien.check_edges():
+                self._change_fleet_direction()
+                break
+
+    def _change_fleet_direction(self):
+        """Drop the entire fleet and change the fleets direction."""
+        for alien in self.aleins.sprite():
+            alien.rect.y += slef.settings.fleet_drop_speed
+        self.settings.fleet_direction *= -1
 
 
 if __name__ == "__main__":
