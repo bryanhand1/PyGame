@@ -25,7 +25,7 @@ class Settings:
         self.speedup_scale = 1.1
 
         # how quickly the alien point values increase
-        self.score_Scale = 1.5
+        self.score_scale = 1.5
 
         self.initialize_dynamic_settings()
 
