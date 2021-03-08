@@ -201,7 +201,7 @@ class AlienInvasion:
             # pause
             sleep(0.5)
         else:
-            self.game_active = False
+            self.stats.game_active = False
 
     def _check_aliens_bottom(self):
         """Check if any aliens have reached the bottom of the screen"""
