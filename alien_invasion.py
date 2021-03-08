@@ -248,6 +248,7 @@ class AlienInvasion:
             # Reset the game stats
             self.stats.reset_stats()
             self.stats.game_active = True
+            self.sb.prep_score()
 
             # Remove remaining bullets and aliens
             self.aliens.empty()
