@@ -154,6 +154,10 @@ class AlienInvasion:
             self._create_fleet()
             self.settings.increase_speed()
 
+            # Increase levle
+            self.stats.level += 1
+            self.sb.prep_level()
+
     def _create_fleet(self):
         """Create the fleet of aliens."""
         # Creat an alien and find the number ofaliens in a row
@@ -251,6 +255,7 @@ class AlienInvasion:
             self.stats.reset_stats()
             self.stats.game_active = True
             self.sb.prep_score()
+            self.sb.prep_level()
 
             # Remove remaining bullets and aliens
             self.aliens.empty()
